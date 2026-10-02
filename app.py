@@ -9,8 +9,8 @@ def verificar_e_instalar(paquete, nombre_import=None):
     if importlib.util.find_spec(nombre_import) is None:
         try:
             subprocess.check_call([sys.executable, "-m", "pip", "install", paquete, "--quiet"])
-        except Exception as e:
-            print(f"Error al instalar {paquete}: {e}")
+        except:
+            pass
 
 verificar_e_instalar("requests")
 verificar_e_instalar("Pillow", "PIL")
@@ -111,7 +111,7 @@ class CapacitiumX_30Fotos_Pro:
         tk.Button(top, text="➕ AGREGAR PC", bg="#047857", fg="white", font=("Arial", 9, "bold"), command=self.agregar_foto_pc).pack(side="left", padx=4)
         tk.Button(top, text="🔄 REEMPLAZAR", bg="#b45309", fg="white", font=("Arial", 9, "bold"), command=self.reemplazar_clip).pack(side="left", padx=4)
 
-        tk.Button(top, text="🗣 HISTORIA", bg="#065f46", fg="white", font=("Arial", 10, "bold"), command=self.open_text_window).pack(side="left", padx=6)
+        tk.Button(top, text="🗣️️ HISTORIA", bg="#065f46", fg="white", font=("Arial", 10, "bold"), command=self.open_text_window).pack(side="left", padx=6)
         
         tk.Label(top, text="Voz Microsoft:", bg="#111", fg="#38bdf8", font=("Arial", 9, "bold")).pack(side="left", padx=2)
         self.combo_voces = ttk.Combobox(top, textvariable=self.voz_sel, values=list(self.voces_disponibles.keys()), state="readonly", width=24)
